@@ -15,13 +15,18 @@ This api allows access to the Broadlink family of devices for IR/RM control via 
 Start the program 
 
 ```
-broadlinkgo --port=8000 --cmdpath=./ 
+broadlinkgo --port=8000  
 ```
 
 Cmdpath is the location where a "commands" folder exists (it will be created if not present) this is where learned codes will be placed.
 
 For linux/systemd systems a service file is included, the default command dir is "/etc/broadlinkgo" and the systemd unit file is looking for the binary in /usr/local/bin
 
+On Windows the user home dir is APPDATA/broadlinkgo
+
+On OSX (darwin) the default commands dir is the user home dir e.g. Users/user/broadlinkgo
+
+Specify --cmdpath=/directory to change from the default.
 
 The program will look for devices on the network and then once found start the server listening on the port. It will continually scan for devices so if more are added later they will be auto added without needing to re-start
 
